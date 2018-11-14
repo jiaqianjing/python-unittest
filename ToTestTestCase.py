@@ -7,8 +7,9 @@ import to_test
 
 
 class ToTestTestCase(unittest.TestCase):
-    @mock.patch('to_test.add')
+    # 如果 patch 多个外部函数，那么调用遵循自下而上的规则
     @mock.patch('to_test.mul')
+    @mock.patch('to_test.add')
     def test_call_other_funcs(self, mock_add, mock_mul):
         x = 1
         y = 2
@@ -17,9 +18,9 @@ class ToTestTestCase(unittest.TestCase):
         mock_add.return_value = 3
         mock_mul.return_value = 12
         result = to_test.call_other_funcs(x, y, a, b)
-        print mock_add, mock_mul
         print result
-        self.assertIsNotNone(result, (12, 3))
+        assert result is not None
+        assert result == (3, 12)
 
 
 if __name__ == "__main__":

@@ -28,3 +28,8 @@ def call_other_funcs(x, y, a, b):
     else:
         ret = (0, 0)
     return ret
+
+
+if __name__ == "__main__":
+    result = call_other_funcs(1, 2, 3, 4)
+    print result

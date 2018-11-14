@@ -14,9 +14,10 @@ def mul(a, b):
 
 
 def call_other_funcs(x, y, a, b):
+    demo = "demo"
     ret01 = add(x, y)
     ret02 = mul(a, b)
-    print "ret01: {} ret02: {}".format(ret01, ret02)
+    print "demo: {} ret01: {} ret02: {}".format(demo, ret01, ret02)
 
     # 对得到的 ret01, ret02 进行一些处理，得到最终返回值 ret。例如
     if ret01 and ret02:

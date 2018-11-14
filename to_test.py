@@ -3,6 +3,8 @@
 
 # to_test.py
 
+global_variable = "TEST"
+
 def add(x, y):
     ret = x + y
     return ret
@@ -17,6 +19,7 @@ def call_other_funcs(x, y, a, b):
     demo = "demo"
     ret01 = add(x, y)
     ret02 = mul(a, b)
+    print "global_variable: {}".format(global_variable)
     print "demo: {} ret01: {} ret02: {}".format(demo, ret01, ret02)
 
     # 对得到的 ret01, ret02 进行一些处理，得到最终返回值 ret。例如
@@ -33,4 +36,4 @@ def call_other_funcs(x, y, a, b):
 
 if __name__ == "__main__":
     result = call_other_funcs(1, 2, 3, 4)
-    print result
+    print result, global_variable

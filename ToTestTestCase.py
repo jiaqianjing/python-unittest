@@ -24,6 +24,7 @@ class ToTestTestCase(unittest.TestCase):
         b = 4
         mock_add.return_value = 3
         mock_mul.return_value = 12
+        to_test.global_variable = "KKK"
         result = to_test.call_other_funcs(x, y, a, b)
         # mock_add 确保调用过一次，如果没调用或多于一次，则抛出 AssertionError 异常
         mock_add.assert_called_once()

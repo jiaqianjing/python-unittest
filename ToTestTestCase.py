@@ -44,9 +44,16 @@ class ToTestTestCase(unittest.TestCase):
 
     # mock variant
     @mock.patch.object(to_test, 'global_variable', MagicMock(return_value='mock'))
-    def test_call_orther_funcs_03(self):
+    def test_call_other_funcs_03(self):
         to_test.call_other_funcs(1, 2, 3, 4)
 
+    @mock.patch.object(to_test, 'add', MagicMock(return_value=None))
+    def test_call_other_funcs_04(self):
+        to_test.call_other_funcs(1, 2, 3, 4)
+
+    @mock.patch.object(to_test, 'mul', MagicMock(return_value=None))
+    def test_call_other_funcs_05(self):
+        to_test.call_other_funcs(1, 2, 3, 4)
 
 
 if __name__ == "__main__":

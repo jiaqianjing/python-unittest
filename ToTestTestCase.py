@@ -43,17 +43,20 @@ class ToTestTestCase(unittest.TestCase):
         self.assertIsNone(result)
 
     # mock variant
-    @mock.patch.object(to_test, 'global_variable', MagicMock(return_value='mock'))
+    @mock.patch.object(to_test, 'global_variable', "cola")
     def test_call_other_funcs_03(self):
-        to_test.call_other_funcs(1, 2, 3, 4)
+        result = to_test.call_other_funcs(1, 2, 3, 4)
+        self.assertEquals((3, 12), result)
 
     @mock.patch.object(to_test, 'add', MagicMock(return_value=None))
     def test_call_other_funcs_04(self):
-        to_test.call_other_funcs(1, 2, 3, 4)
+        result = to_test.call_other_funcs(1, 2, 3, 4)
+        self.assertEquals((0, 12), result)
 
     @mock.patch.object(to_test, 'mul', MagicMock(return_value=None))
     def test_call_other_funcs_05(self):
-        to_test.call_other_funcs(1, 2, 3, 4)
+        result = to_test.call_other_funcs(1, 2, 3, 4)
+        self.assertEquals((3, 0), result)
 
 
 if __name__ == "__main__":
